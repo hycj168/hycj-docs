@@ -1,0 +1,164 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 几何图形背景 -->
+
+    <!-- 三角形群组 -->
+    <g>
+        <!-- 大三角形 -->
+        <polygon points="100,60 140,120 60,120" fill="url(#geoGrad1)" opacity="0.7">
+            <animateTransform attributeName="transform" type="rotate"
+                              values="0 100 90; 360 100 90" dur="20s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;0.3;0.7" dur="8s" repeatCount="indefinite"/>
+        </polygon>
+
+        <polygon points="300,80 350,140 250,140" fill="url(#geoGrad2)" opacity="0.6">
+            <animateTransform attributeName="transform" type="rotate"
+                              values="0 300 110; -360 300 110" dur="25s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.6;0.9;0.6" dur="6s" repeatCount="indefinite"/>
+        </polygon>
+
+        <polygon points="200,200 240,260 160,260" fill="url(#geoGrad3)" opacity="0.8">
+            <animateTransform attributeName="transform" type="rotate"
+                              values="0 200 230; 360 200 230" dur="18s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;0.4;0.8" dur="7s" repeatCount="indefinite"/>
+        </polygon>
+
+        <!-- 中等三角形 -->
+        <polygon points="80,180 100,210 60,210" fill="url(#geoGrad1)" opacity="0.5">
+            <animateTransform attributeName="transform" type="rotate"
+                              values="0 80 195; 360 80 195" dur="15s" repeatCount="indefinite"/>
+        </polygon>
+
+        <polygon points="350,200 370,230 330,230" fill="url(#geoGrad2)" opacity="0.6">
+            <animateTransform attributeName="transform" type="rotate"
+                              values="0 350 215; -360 350 215" dur="12s" repeatCount="indefinite"/>
+        </polygon>
+    </g>
+
+    <!-- 六边形群组 -->
+    <g>
+        <polygon points="180,50 200,40 220,50 220,70 200,80 180,70" fill="url(#geoGrad2)" opacity="0.6">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 15,-10; 0,0" dur="8s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.6;1;0.6" dur="5s" repeatCount="indefinite"/>
+        </polygon>
+
+        <polygon points="320,160 345,150 370,160 370,185 345,195 320,185" fill="url(#geoGrad3)" opacity="0.7">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -20,12; 0,0" dur="9s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;0.3;0.7" dur="6s" repeatCount="indefinite"/>
+        </polygon>
+
+        <polygon points="50,240 70,235 90,240 90,260 70,265 50,260" fill="url(#geoGrad1)" opacity="0.5">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 10,18; 0,0" dur="7s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4s" repeatCount="indefinite"/>
+        </polygon>
+    </g>
+
+    <!-- 菱形群组 -->
+    <g>
+        <polygon points="250,120 270,140 250,160 230,140" fill="url(#geoGrad1)" opacity="0.6">
+            <animateTransform attributeName="transform" type="rotate"
+                              values="0 250 140; 360 250 140" dur="16s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.6;0.9;0.6" dur="7s" repeatCount="indefinite"/>
+        </polygon>
+
+        <polygon points="120,160 135,175 120,190 105,175" fill="url(#geoGrad2)" opacity="0.7">
+            <animateTransform attributeName="transform" type="rotate"
+                              values="0 120 175; -360 120 175" dur="14s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;0.4;0.7" dur="5.5s" repeatCount="indefinite"/>
+        </polygon>
+
+        <polygon points="350,50 365,65 350,80 335,65" fill="url(#geoGrad3)" opacity="0.8">
+            <animateTransform attributeName="transform" type="rotate"
+                              values="0 350 65; 360 350 65" dur="22s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;0.2;0.8" dur="6.5s" repeatCount="indefinite"/>
+        </polygon>
+    </g>
+
+    <!-- 圆形装饰 -->
+    <g opacity="0.4">
+        <circle cx="40" cy="80" r="8" fill="url(#geoGrad1)">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 12,-8; 0,0" dur="6s"
+                              repeatCount="indefinite"/>
+        </circle>
+        <circle cx="380" cy="120" r="6" fill="url(#geoGrad2)">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -8,15; 0,0" dur="7s"
+                              repeatCount="indefinite"/>
+        </circle>
+        <circle cx="160" cy="280" r="10" fill="url(#geoGrad3)">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 18,-5; 0,0" dur="5s"
+                              repeatCount="indefinite"/>
+        </circle>
+    </g>
+
+    <!-- 连接线网络 -->
+    <g opacity="0.3">
+        <path d="M100,90 L180,60" stroke="url(#lineGrad1)" stroke-width="1" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,100; 50,100; 100,100" dur="4s"
+                     repeatCount="indefinite"/>
+        </path>
+        <path d="M200,80 L250,140" stroke="url(#lineGrad2)" stroke-width="1" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,80; 40,80; 80,80" dur="3.5s"
+                     repeatCount="indefinite"/>
+        </path>
+        <path d="M300,110 L345,172" stroke="url(#lineGrad3)" stroke-width="1" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,90; 45,90; 90,90" dur="4.5s"
+                     repeatCount="indefinite"/>
+        </path>
+        <path d="M120,175 L200,230" stroke="url(#lineGrad1)" stroke-width="1" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,110; 55,110; 110,110" dur="5s"
+                     repeatCount="indefinite"/>
+        </path>
+    </g>
+
+    <!-- 浮动小几何体 -->
+    <g opacity="0.5">
+        <rect x="30" y="150" width="8" height="8" fill="url(#geoGrad1)" transform="rotate(45 34 154)">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 10,-12; 0,0" dur="4s"
+                              repeatCount="indefinite"/>
+        </rect>
+        <rect x="370" y="250" width="6" height="6" fill="url(#geoGrad2)" transform="rotate(45 373 253)">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -15,8; 0,0" dur="5s"
+                              repeatCount="indefinite"/>
+        </rect>
+        <rect x="280" y="30" width="10" height="10" fill="url(#geoGrad3)" transform="rotate(45 285 35)">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 8,20; 0,0" dur="6s"
+                              repeatCount="indefinite"/>
+        </rect>
+    </g>
+
+    <defs>
+        <!-- 几何图形渐变 -->
+        <linearGradient id="geoGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.3"/>
+        </linearGradient>
+
+        <linearGradient id="geoGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:0.3"/>
+        </linearGradient>
+
+        <linearGradient id="geoGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.3"/>
+        </linearGradient>
+
+        <!-- 线条渐变 -->
+        <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.2"/>
+        </linearGradient>
+
+        <linearGradient id="lineGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:0.2"/>
+        </linearGradient>
+
+        <linearGradient id="lineGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.2"/>
+        </linearGradient>
+    </defs>
+</svg>

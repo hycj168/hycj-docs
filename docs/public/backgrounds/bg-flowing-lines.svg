@@ -1,0 +1,162 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 流动线条背景 -->
+
+    <!-- 主要流动曲线 -->
+    <g>
+        <!-- 第一层流动线 -->
+        <path d="M0,100 Q100,80 200,100 T400,100" stroke="url(#flowGrad1)" stroke-width="2" fill="none" opacity="0.8">
+            <animate attributeName="stroke-dasharray" values="0,400; 200,400; 400,400" dur="6s"
+                     repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="8s"
+                              repeatCount="indefinite"/>
+        </path>
+
+        <path d="M0,150 Q150,120 300,150 T600,150" stroke="url(#flowGrad2)" stroke-width="2.5" fill="none"
+              opacity="0.7">
+            <animate attributeName="stroke-dasharray" values="0,500; 250,500; 500,500" dur="7s"
+                     repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,15; 0,0" dur="9s"
+                              repeatCount="indefinite"/>
+        </path>
+
+        <path d="M0,200 Q80,170 160,200 T320,200 Q380,180 400,200" stroke="url(#flowGrad3)" stroke-width="1.8"
+              fill="none" opacity="0.9">
+            <animate attributeName="stroke-dasharray" values="0,450; 225,450; 450,450" dur="5.5s"
+                     repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,8; 0,0" dur="7s"
+                              repeatCount="indefinite"/>
+        </path>
+
+        <!-- 第二层流动线 -->
+        <path d="M0,60 Q120,40 240,60 T480,60" stroke="url(#flowGrad1)" stroke-width="1.5" fill="none" opacity="0.6">
+            <animate attributeName="stroke-dasharray" values="0,350; 175,350; 350,350" dur="8s" repeatCount="indefinite"
+                     begin="1s"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,12; 0,0" dur="10s"
+                              repeatCount="indefinite"/>
+        </path>
+
+        <path d="M0,240 Q100,220 200,240 T400,240" stroke="url(#flowGrad2)" stroke-width="2" fill="none" opacity="0.7">
+            <animate attributeName="stroke-dasharray" values="0,380; 190,380; 380,380" dur="6.5s"
+                     repeatCount="indefinite" begin="2s"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-8; 0,0" dur="9s"
+                              repeatCount="indefinite"/>
+        </path>
+
+        <!-- 第三层细线 -->
+        <path d="M0,120 Q90,100 180,120 T360,120" stroke="url(#flowGrad3)" stroke-width="1" fill="none" opacity="0.5">
+            <animate attributeName="stroke-dasharray" values="0,300; 150,300; 300,300" dur="9s" repeatCount="indefinite"
+                     begin="0.5s"/>
+        </path>
+
+        <path d="M0,180 Q110,160 220,180 T440,180" stroke="url(#flowGrad1)" stroke-width="1.2" fill="none"
+              opacity="0.6">
+            <animate attributeName="stroke-dasharray" values="0,320; 160,320; 320,320" dur="7.5s"
+                     repeatCount="indefinite" begin="1.5s"/>
+        </path>
+    </g>
+
+    <!-- 交叉流动线 -->
+    <g opacity="0.4">
+        <path d="M50,0 Q100,50 150,100 T250,200 Q300,250 350,300" stroke="url(#flowGrad2)" stroke-width="1.5"
+              fill="none">
+            <animate attributeName="stroke-dasharray" values="0,400; 200,400; 400,400" dur="10s"
+                     repeatCount="indefinite"/>
+        </path>
+
+        <path d="M350,0 Q300,50 250,100 T150,200 Q100,250 50,300" stroke="url(#flowGrad3)" stroke-width="1.8"
+              fill="none">
+            <animate attributeName="stroke-dasharray" values="0,420; 210,420; 420,420" dur="8.5s"
+                     repeatCount="indefinite" begin="2s"/>
+        </path>
+    </g>
+
+    <!-- 螺旋流动线 -->
+    <g opacity="0.6">
+        <path d="M200,150 m-30,0 a30,30 0 1,1 60,0 a25,25 0 1,1 -50,0 a20,20 0 1,1 40,0 a15,15 0 1,1 -30,0 a10,10 0 1,1 20,0"
+              stroke="url(#flowGrad1)" stroke-width="2" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,200; 100,200; 200,200" dur="8s"
+                     repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="rotate"
+                              values="0 200 150; 360 200 150" dur="20s" repeatCount="indefinite"/>
+        </path>
+    </g>
+
+    <!-- 流动粒子 -->
+    <g>
+        <circle cx="0" cy="100" r="3" fill="url(#particleGrad1)" opacity="0.8">
+            <animateMotion dur="6s" repeatCount="indefinite">
+                <mpath href="#path1"/>
+            </animateMotion>
+        </circle>
+
+        <circle cx="0" cy="150" r="2.5" fill="url(#particleGrad2)" opacity="0.7">
+            <animateMotion dur="7s" repeatCount="indefinite" begin="1s">
+                <mpath href="#path2"/>
+            </animateMotion>
+        </circle>
+
+        <circle cx="0" cy="200" r="2" fill="url(#particleGrad3)" opacity="0.9">
+            <animateMotion dur="5.5s" repeatCount="indefinite" begin="2s">
+                <mpath href="#path3"/>
+            </animateMotion>
+        </circle>
+
+        <!-- 小粒子群 -->
+        <g opacity="0.6">
+            <circle cx="0" cy="60" r="1.5" fill="url(#particleGrad1)">
+                <animateMotion dur="8s" repeatCount="indefinite" begin="0.5s">
+                    <mpath href="#path4"/>
+                </animateMotion>
+            </circle>
+            <circle cx="0" cy="240" r="1.8" fill="url(#particleGrad2)">
+                <animateMotion dur="6.5s" repeatCount="indefinite" begin="1.5s">
+                    <mpath href="#path5"/>
+                </animateMotion>
+            </circle>
+        </g>
+    </g>
+
+    <!-- 隐藏的路径定义（用于粒子运动） -->
+    <defs>
+        <path id="path1" d="M0,100 Q100,80 200,100 T400,100"/>
+        <path id="path2" d="M0,150 Q150,120 300,150 T600,150"/>
+        <path id="path3" d="M0,200 Q80,170 160,200 T320,200 Q380,180 400,200"/>
+        <path id="path4" d="M0,60 Q120,40 240,60 T480,60"/>
+        <path id="path5" d="M0,240 Q100,220 200,240 T400,240"/>
+
+        <!-- 流动线渐变 -->
+        <linearGradient id="flowGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#764ba2;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#667eea;stop-opacity:0.3"/>
+        </linearGradient>
+
+        <linearGradient id="flowGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#f5576c;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0.3"/>
+        </linearGradient>
+
+        <linearGradient id="flowGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#00f2fe;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#4facfe;stop-opacity:0.3"/>
+        </linearGradient>
+
+        <!-- 粒子渐变 -->
+        <radialGradient id="particleGrad1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.5"/>
+        </radialGradient>
+
+        <radialGradient id="particleGrad2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:0.5"/>
+        </radialGradient>
+
+        <radialGradient id="particleGrad3" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.5"/>
+        </radialGradient>
+    </defs>
+</svg>

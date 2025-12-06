@@ -1,0 +1,845 @@
+/* 引入Ubuntu Mono字体 */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+
+/* 配置代码块和行内代码字体 */
+:root {
+    --vp-font-family-mono: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Logo样式优化 */
+.VPNavBarTitle .logo {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.VPNavBarTitle .logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(255, 107, 53, 0.3));
+}
+
+/* 主页标题渐变橘黄色样式 */
+.VPHero .name {
+    background: linear-gradient(135deg, #ff6b35, #f7931e, #ffb347);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+/* 渐变动画 */
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Hero区域布局优化 */
+.VPHero {
+    animation: fadeInUp 1s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero图片动画优化 */
+.VPHero .image {
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 10px 30px rgba(255, 107, 53, 0.2));
+}
+
+/* 动态背景图片支持 */
+.VPHero .image img {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 通过CSS变量支持动态背景 */
+:root {
+    --hero-bg-image: url('/hero-animation.svg');
+}
+
+.VPHero .image img[src*="hero-animation.svg"],
+.VPHero .image img[src*="bg-"] {
+    content: var(--hero-bg-image);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+    66% {
+        transform: translateY(-5px) rotate(-1deg);
+    }
+}
+
+/* Hero图片悬停效果 */
+.VPHero .image:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 15px 40px rgba(255, 107, 53, 0.3));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hero文本区域动画 */
+.VPHero .text {
+    animation: slideInLeft 1s ease-out 0.2s both;
+}
+
+.VPHero .tagline {
+    animation: slideInLeft 1s ease-out 0.4s both;
+}
+
+.VPHero .actions {
+    animation: slideInLeft 1s ease-out 0.6s both;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Features区域动画 */
+.VPFeatures {
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+/* 淡入上移动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 特性卡片悬停效果 */
+.VPFeature {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.VPFeature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.VPFeature:hover::before {
+    left: 100%;
+}
+
+.VPFeature:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.15);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+/* 按钮悬停动画 */
+.VPButton {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.VPButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.VPButton:hover::before {
+    left: 100%;
+}
+
+.VPButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 品牌色按钮特殊效果 */
+.VPButton.brand {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border: none;
+}
+
+.VPButton.brand:hover {
+    background: linear-gradient(135deg, #f7931e, #ffb347);
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+}
+
+/* 背景装饰 */
+.VPHero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.05) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 性能优化 */
+.VPHero .image,
+.VPFeature,
+.VPButton,
+.VPNavBarTitle .logo {
+    will-change: transform;
+}
+
+/* 减少重绘 */
+.VPHero::before,
+.VPFeature::before,
+.VPButton::before {
+    transform: translateZ(0);
+}
+
+/* 硬件加速 */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg) translateZ(0);
+    }
+    33% {
+        transform: translateY(-10px) rotate(1deg) translateZ(0);
+    }
+    66% {
+        transform: translateY(-5px) rotate(-1deg) translateZ(0);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0 50%;
+        transform: translateZ(0);
+    }
+    50% {
+        background-position: 100% 50%;
+        transform: translateZ(0);
+    }
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .VPHero .image {
+        max-width: 280px;
+        margin: 2rem auto;
+    }
+
+    .VPFeature:hover {
+        transform: translateY(-4px);
+    }
+
+    /* 移动端减少动画 */
+    @media (prefers-reduced-motion: reduce) {
+        .VPHero .image,
+        .VPHero .name,
+        .VPFeature,
+        .VPButton {
+            animation: none;
+        }
+    }
+}
+
+/* 暗色模式优化 */
+@media (prefers-color-scheme: dark) {
+    .VPFeature:hover {
+        box-shadow: 0 20px 40px rgba(255, 107, 53, 0.25);
+    }
+
+    .VPButton.brand:hover {
+        box-shadow: 0 8px 20px rgba(255, 107, 53, 0.5);
+    }
+}
+
+/* ==================== 代码块优化样式 ==================== */
+
+/* 代码块容器动画 - 哑光玻璃效果 */
+.vp-code-group,
+div[class*="language-"] {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 12px;
+    
+    /* 哑光玻璃背景效果 */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* 玻璃质感阴影 */
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+    /* 移除 overflow: hidden 避免滚动条问题 */
+}
+
+/* 代码块悬停效果 - 整个框架动画 */
+.vp-code-group:hover,
+div[class*="language-"]:hover {
+    /* 轻微上移 */
+    transform: translateY(-2px);
+    
+    /* 增强边框发光 */
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    
+    /* 增强外阴影，不影响内容 */
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.12),
+        0 3px 12px rgba(255, 107, 53, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 移除代码块内层光泽悬停效果 */
+
+/* 代码内容区域 - 移除内部框架 */
+.vp-code-group pre,
+div[class*="language-"] pre {
+    position: relative;
+    margin: 0;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    /* 保持原有的overflow设置 */
+}
+
+/* 移除代码块内部容器的边框和背景 */
+.vp-code-group .vp-code,
+div[class*="language-"] .vp-code {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 移除代码组内容区域的边框 */
+.vp-code-group .blocks {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 0 12px 12px !important;
+}
+
+/* 确保代码内容区域透明 */
+.vp-code-group .blocks .block,
+div[class*="language-"] .block {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* 移除所有可能的内部边框和背景 */
+div[class*="language-"] > pre,
+div[class*="language-"] > .highlight > pre,
+.vp-code-group pre[class*="language-"],
+.highlight {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+}
+
+/* 移除Shiki高亮器的背景 */
+.shiki,
+.shiki pre {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* 移除Prism高亮器的背景 */
+pre[class*="language-"],
+code[class*="language-"] {
+    background: transparent !important;
+}
+
+/* 覆盖VitePress默认的代码块样式 - 使用更高优先级 */
+.vp-doc [class*='language-'] code,
+.vp-doc div[class*='language-'] code {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important; /* 确保代码内容不变形 */
+}
+
+/* 确保代码块容器本身也没有多余背景 */
+.vp-doc [class*='language-'],
+.vp-doc div[class*='language-'] {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* 移除可能存在的其他VitePress内部样式 */
+.vp-doc .vp-code-group [class*='language-'] code {
+    background: transparent !important;
+}
+
+/* 确保代码内容区域在悬停时不变形 */
+.vp-code-group:hover pre,
+div[class*="language-"]:hover pre,
+.vp-code-group:hover code,
+div[class*="language-"]:hover code {
+    transform: none !important;
+    scale: none !important;
+}
+
+/* 移除行号悬停效果 */
+
+/* 复制按钮动画 - 避免影响布局 */
+div[class*="language-"] .copy {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 6px;
+    opacity: 0.6;
+}
+
+div[class*="language-"] .copy:hover {
+    opacity: 1;
+    background: rgba(255, 107, 53, 0.1) !important;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.2);
+}
+
+/* VitePress 内置复制按钮样式 */
+.vp-copy-code-button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 6px;
+}
+
+.vp-copy-code-button:hover {
+    background: rgba(255, 107, 53, 0.1) !important;
+    transform: scale(1.05);
+}
+
+/* ==================== 编程语言特定颜色 ==================== */
+
+/* JavaScript / TypeScript */
+div[class*="language-js"] .token.keyword,
+div[class*="language-javascript"] .token.keyword,
+div[class*="language-ts"] .token.keyword,
+div[class*="language-typescript"] .token.keyword {
+    color: #f7931e !important;
+    font-weight: 600;
+}
+
+div[class*="language-js"] .token.string,
+div[class*="language-javascript"] .token.string,
+div[class*="language-ts"] .token.string,
+div[class*="language-typescript"] .token.string {
+    color: #43e97b !important;
+}
+
+div[class*="language-js"] .token.function,
+div[class*="language-javascript"] .token.function,
+div[class*="language-ts"] .token.function,
+div[class*="language-typescript"] .token.function {
+    color: #4facfe !important;
+}
+
+div[class*="language-js"] .token.number,
+div[class*="language-javascript"] .token.number,
+div[class*="language-ts"] .token.number,
+div[class*="language-typescript"] .token.number {
+    color: #ff6b6b !important;
+}
+
+/* Python */
+div[class*="language-py"] .token.keyword,
+div[class*="language-python"] .token.keyword {
+    color: #667eea !important;
+    font-weight: 600;
+}
+
+div[class*="language-py"] .token.string,
+div[class*="language-python"] .token.string {
+    color: #38f9d7 !important;
+}
+
+div[class*="language-py"] .token.function,
+div[class*="language-python"] .token.function {
+    color: #f093fb !important;
+}
+
+div[class*="language-py"] .token.number,
+div[class*="language-python"] .token.number {
+    color: #ffb347 !important;
+}
+
+/* Java */
+div[class*="language-java"] .token.keyword {
+    color: #764ba2 !important;
+    font-weight: 600;
+}
+
+div[class*="language-java"] .token.string {
+    color: #00f2fe !important;
+}
+
+div[class*="language-java"] .token.function,
+div[class*="language-java"] .token.class-name {
+    color: #f5576c !important;
+}
+
+div[class*="language-java"] .token.number {
+    color: #fee140 !important;
+}
+
+/* C++ / C */
+div[class*="language-cpp"] .token.keyword,
+div[class*="language-c"] .token.keyword {
+    color: #ff0080 !important;
+    font-weight: 600;
+}
+
+div[class*="language-cpp"] .token.string,
+div[class*="language-c"] .token.string {
+    color: #00d4ff !important;
+}
+
+div[class*="language-cpp"] .token.function,
+div[class*="language-c"] .token.function {
+    color: #8c00ff !important;
+}
+
+div[class*="language-cpp"] .token.number,
+div[class*="language-c"] .token.number {
+    color: #00ff88 !important;
+}
+
+/* Go */
+div[class*="language-go"] .token.keyword {
+    color: #00add8 !important;
+    font-weight: 600;
+}
+
+div[class*="language-go"] .token.string {
+    color: #ce3262 !important;
+}
+
+div[class*="language-go"] .token.function {
+    color: #f6d55c !important;
+}
+
+div[class*="language-go"] .token.number {
+    color: #20bf6b !important;
+}
+
+/* Rust */
+div[class*="language-rust"] .token.keyword,
+div[class*="language-rs"] .token.keyword {
+    color: #ce422b !important;
+    font-weight: 600;
+}
+
+div[class*="language-rust"] .token.string,
+div[class*="language-rs"] .token.string {
+    color: #19a974 !important;
+}
+
+div[class*="language-rust"] .token.function,
+div[class*="language-rs"] .token.function {
+    color: #f39c12 !important;
+}
+
+div[class*="language-rust"] .token.number,
+div[class*="language-rs"] .token.number {
+    color: #8e44ad !important;
+}
+
+/* PHP */
+div[class*="language-php"] .token.keyword {
+    color: #777bb4 !important;
+    font-weight: 600;
+}
+
+div[class*="language-php"] .token.string {
+    color: #2ecc71 !important;
+}
+
+div[class*="language-php"] .token.function {
+    color: #e74c3c !important;
+}
+
+div[class*="language-php"] .token.number {
+    color: #f39c12 !important;
+}
+
+/* CSS / SCSS */
+div[class*="language-css"] .token.property,
+div[class*="language-scss"] .token.property {
+    color: #1abc9c !important;
+}
+
+div[class*="language-css"] .token.string,
+div[class*="language-scss"] .token.string {
+    color: #e67e22 !important;
+}
+
+div[class*="language-css"] .token.selector,
+div[class*="language-scss"] .token.selector {
+    color: #9b59b6 !important;
+}
+
+div[class*="language-css"] .token.number,
+div[class*="language-scss"] .token.number {
+    color: #e74c3c !important;
+}
+
+/* HTML */
+div[class*="language-html"] .token.tag {
+    color: #e67e22 !important;
+}
+
+div[class*="language-html"] .token.attr-name {
+    color: #f39c12 !important;
+}
+
+div[class*="language-html"] .token.attr-value {
+    color: #27ae60 !important;
+}
+
+/* JSON */
+div[class*="language-json"] .token.property {
+    color: #3498db !important;
+}
+
+div[class*="language-json"] .token.string {
+    color: #2ecc71 !important;
+}
+
+div[class*="language-json"] .token.number {
+    color: #e74c3c !important;
+}
+
+div[class*="language-json"] .token.boolean {
+    color: #9b59b6 !important;
+}
+
+/* YAML */
+div[class*="language-yaml"] .token.key,
+div[class*="language-yml"] .token.key {
+    color: #3498db !important;
+}
+
+div[class*="language-yaml"] .token.string,
+div[class*="language-yml"] .token.string {
+    color: #2ecc71 !important;
+}
+
+/* Shell / Bash */
+div[class*="language-bash"] .token.function,
+div[class*="language-sh"] .token.function {
+    color: #f39c12 !important;
+}
+
+div[class*="language-bash"] .token.string,
+div[class*="language-sh"] .token.string {
+    color: #2ecc71 !important;
+}
+
+div[class*="language-bash"] .token.keyword,
+div[class*="language-sh"] .token.keyword {
+    color: #e74c3c !important;
+}
+
+/* SQL */
+div[class*="language-sql"] .token.keyword {
+    color: #3498db !important;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+div[class*="language-sql"] .token.string {
+    color: #2ecc71 !important;
+}
+
+div[class*="language-sql"] .token.function {
+    color: #9b59b6 !important;
+}
+
+/* ==================== 代码组标签样式 ==================== */
+
+/* 代码组标签 - 哑光玻璃效果 */
+.vp-code-group .tabs {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px 12px 0 0;
+}
+
+.vp-code-group .tabs .tab {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.vp-code-group .tabs .tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b35, #f7931e);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.vp-code-group .tabs .tab:hover::after,
+.vp-code-group .tabs .tab.active::after {
+    width: 80%;
+}
+
+.vp-code-group .tabs .tab:hover {
+    background: rgba(255, 107, 53, 0.1);
+    color: #ff6b35;
+}
+
+.vp-code-group .tabs .tab.active {
+    background: rgba(255, 107, 53, 0.15);
+    color: #ff6b35;
+    font-weight: 600;
+}
+
+/* ==================== 行内代码样式 ==================== */
+
+/* 行内代码 - 哑光玻璃效果 */
+code:not([class*="language-"]) {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ff6b35;
+    padding: 0.2em 0.5em;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+code:not([class*="language-"]):hover {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: scale(1.05);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    box-shadow: 
+        0 4px 12px rgba(255, 107, 53, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ==================== 响应式优化 ==================== */
+
+@media (max-width: 768px) {
+    .vp-code-group:hover,
+    div[class*="language-"]:hover {
+        /* 移动端轻微框架动画 */
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .vp-copy-code:hover {
+        transform: scale(1.05);
+    }
+}
+
+/* ==================== 暗色模式哑光玻璃优化 ==================== */
+
+@media (prefers-color-scheme: dark) {
+    .vp-code-group,
+    div[class*="language-"] {
+        background: rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 2px 8px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+    
+    .vp-code-group:hover,
+    div[class*="language-"]:hover {
+        /* 暗色模式框架悬停效果 */
+        transform: translateY(-2px);
+        border: 1px solid rgba(255, 107, 53, 0.4);
+        box-shadow: 
+            0 8px 30px rgba(0, 0, 0, 0.25),
+            0 3px 12px rgba(255, 107, 53, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    
+    .vp-code-group .tabs {
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    code:not([class*="language-"]) {
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 
+            0 2px 8px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+    
+    code:not([class*="language-"]):hover {
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 107, 53, 0.4);
+        box-shadow: 
+            0 4px 12px rgba(255, 107, 53, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+}
+
+/* ==================== 性能优化 ==================== */
+
+.vp-code-group,
+div[class*="language-"],
+.vp-copy-code,
+code:not([class*="language-"]) {
+    will-change: transform;
+}
+
+.vp-code-group::before,
+div[class*="language-"]::before {
+    transform: translateZ(0);
+}

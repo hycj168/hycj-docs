@@ -1,0 +1,88 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 科技风格设计 -->
+    <g transform="translate(6, 6)">
+        <!-- 主体框架 -->
+        <rect x="2" y="2" width="24" height="24" rx="4" fill="none" stroke="url(#techGradient1)" stroke-width="1.5"
+              opacity="0.8">
+            <animate attributeName="stroke-dasharray" values="0,100; 50,100; 100,100" dur="3s"
+                     repeatCount="indefinite"/>
+        </rect>
+
+        <!-- 内部电路图案 -->
+        <g opacity="0.9">
+            <!-- 中心核心 -->
+            <circle cx="14" cy="14" r="4" fill="url(#techGradient2)">
+                <animate attributeName="r" values="4;5;4" dur="2s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- 连接线 -->
+            <path d="M6,14 L10,14" stroke="url(#techGradient1)" stroke-width="2">
+                <animate attributeName="stroke-dasharray" values="0,4; 2,4; 4,4" dur="1.5s" repeatCount="indefinite"/>
+            </path>
+            <path d="M18,14 L22,14" stroke="url(#techGradient1)" stroke-width="2">
+                <animate attributeName="stroke-dasharray" values="0,4; 2,4; 4,4" dur="1.8s" repeatCount="indefinite"/>
+            </path>
+            <path d="M14,6 L14,10" stroke="url(#techGradient1)" stroke-width="2">
+                <animate attributeName="stroke-dasharray" values="0,4; 2,4; 4,4" dur="1.3s" repeatCount="indefinite"/>
+            </path>
+            <path d="M14,18 L14,22" stroke="url(#techGradient1)" stroke-width="2">
+                <animate attributeName="stroke-dasharray" values="0,4; 2,4; 4,4" dur="1.7s" repeatCount="indefinite"/>
+            </path>
+
+            <!-- 角落节点 -->
+            <circle cx="6" cy="6" r="1.5" fill="url(#techGradient3)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="22" cy="6" r="1.5" fill="url(#techGradient3)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="2.2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="6" cy="22" r="1.5" fill="url(#techGradient3)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="22" cy="22" r="1.5" fill="url(#techGradient3)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+
+        <!-- 扫描线效果 -->
+        <rect x="2" y="2" width="24" height="2" fill="url(#scanGradient)" opacity="0.6">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,22; 0,0" dur="3s"
+                              repeatCount="indefinite"/>
+        </rect>
+    </g>
+
+    <!-- 文字 -->
+    <text x="45" y="26" font-family="'Courier New', monospace" font-size="18" font-weight="700"
+          fill="url(#textGradient2)">
+        Kapok
+    </text>
+
+    <defs>
+        <linearGradient id="techGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#5b86e5;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="techGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#36d1dc;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#5b86e5;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="techGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#fecfef;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="scanGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:transparent;stop-opacity:0"/>
+            <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:transparent;stop-opacity:0"/>
+        </linearGradient>
+
+        <linearGradient id="textGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#5b86e5;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#36d1dc;stop-opacity:1"/>
+        </linearGradient>
+    </defs>
+</svg>

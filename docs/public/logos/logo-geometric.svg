@@ -1,0 +1,56 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 几何图形组合 -->
+    <g transform="translate(8, 8)">
+        <!-- 主要几何形状 -->
+        <polygon points="12,4 20,8 20,16 12,20 4,16 4,8" fill="url(#geometricGradient1)" opacity="0.9">
+            <animateTransform attributeName="transform" type="rotate" values="0 12 12; 360 12 12" dur="20s"
+                              repeatCount="indefinite"/>
+        </polygon>
+
+        <circle cx="12" cy="12" r="6" fill="url(#geometricGradient2)" opacity="0.7">
+            <animate attributeName="r" values="6;8;6" dur="3s" repeatCount="indefinite"/>
+        </circle>
+
+        <rect x="8" y="8" width="8" height="8" rx="2" fill="url(#geometricGradient3)" opacity="0.8">
+            <animateTransform attributeName="transform" type="rotate" values="0 12 12; -360 12 12" dur="15s"
+                              repeatCount="indefinite"/>
+        </rect>
+
+        <!-- 装饰线条 -->
+        <path d="M2,12 L22,12" stroke="url(#geometricGradient1)" stroke-width="1" opacity="0.5">
+            <animate attributeName="stroke-dasharray" values="0,20; 10,20; 20,20" dur="2s" repeatCount="indefinite"/>
+        </path>
+        <path d="M12,2 L12,22" stroke="url(#geometricGradient2)" stroke-width="1" opacity="0.5">
+            <animate attributeName="stroke-dasharray" values="0,20; 10,20; 20,20" dur="2.5s" repeatCount="indefinite"/>
+        </path>
+    </g>
+
+    <!-- 文字 -->
+    <text x="45" y="26" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700"
+          fill="url(#textGradient1)">
+        Kapok
+    </text>
+
+    <defs>
+        <linearGradient id="geometricGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="geometricGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="geometricGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="textGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1"/>
+        </linearGradient>
+    </defs>
+</svg>

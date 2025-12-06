@@ -1,0 +1,173 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景装饰圆圈 -->
+    <circle cx="320" cy="80" r="60" fill="url(#bgGradient1)" opacity="0.1">
+        <animate attributeName="r" values="60;70;60" dur="4s" repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="100" cy="220" r="40" fill="url(#bgGradient2)" opacity="0.08">
+        <animate attributeName="r" values="40;50;40" dur="3s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- 主要文档图标 -->
+    <g transform="translate(150, 80)">
+        <!-- 文档堆叠效果 -->
+        <rect x="15" y="15" width="80" height="100" rx="8" fill="url(#docGradient1)" opacity="0.3">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 2,2; 0,0" dur="3s"
+                              repeatCount="indefinite"/>
+        </rect>
+
+        <rect x="10" y="10" width="80" height="100" rx="8" fill="url(#docGradient2)" opacity="0.5">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 1,1; 0,0" dur="2.5s"
+                              repeatCount="indefinite"/>
+        </rect>
+
+        <rect x="5" y="5" width="80" height="100" rx="8" fill="url(#docGradient3)">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -1,-1; 0,0" dur="2s"
+                              repeatCount="indefinite"/>
+        </rect>
+
+        <!-- 文档内容 -->
+        <g opacity="0.8">
+            <rect x="15" y="20" width="50" height="3" rx="1.5" fill="white" opacity="0.9">
+                <animate attributeName="width" values="50;55;50" dur="2s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="15" y="28" width="60" height="2" rx="1" fill="white" opacity="0.7">
+                <animate attributeName="width" values="60;65;60" dur="2.2s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="15" y="34" width="45" height="2" rx="1" fill="white" opacity="0.7">
+                <animate attributeName="width" values="45;50;45" dur="1.8s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="15" y="40" width="55" height="2" rx="1" fill="white" opacity="0.5">
+                <animate attributeName="width" values="55;60;55" dur="2.5s" repeatCount="indefinite"/>
+            </rect>
+
+            <!-- 代码块模拟 -->
+            <rect x="15" y="50" width="60" height="25" rx="4" fill="rgba(0,0,0,0.1)" opacity="0.6"/>
+            <rect x="18" y="55" width="30" height="2" rx="1" fill="white" opacity="0.4"/>
+            <rect x="18" y="59" width="40" height="2" rx="1" fill="white" opacity="0.4"/>
+            <rect x="18" y="63" width="25" height="2" rx="1" fill="white" opacity="0.4"/>
+            <rect x="18" y="67" width="35" height="2" rx="1" fill="white" opacity="0.4"/>
+        </g>
+    </g>
+
+    <!-- 浮动的装饰元素 -->
+    <g>
+        <!-- 代码标签 -->
+        <rect x="50" y="50" width="30" height="20" rx="10" fill="url(#tagGradient1)" opacity="0.8">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-5; 0,0" dur="3s"
+                              repeatCount="indefinite"/>
+        </rect>
+        <text x="65" y="63" font-family="monospace" font-size="8" fill="white" text-anchor="middle" opacity="0.9">TS
+        </text>
+
+        <!-- Vue标签 -->
+        <rect x="320" y="180" width="35" height="20" rx="10" fill="url(#tagGradient2)" opacity="0.8">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,5; 0,0" dur="2.5s"
+                              repeatCount="indefinite"/>
+        </rect>
+        <text x="337" y="193" font-family="monospace" font-size="8" fill="white" text-anchor="middle" opacity="0.9">
+            Vue
+        </text>
+
+        <!-- CSS标签 -->
+        <rect x="80" y="180" width="30" height="20" rx="10" fill="url(#tagGradient3)" opacity="0.8">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s"
+                              repeatCount="indefinite"/>
+        </rect>
+        <text x="95" y="193" font-family="monospace" font-size="8" fill="white" text-anchor="middle" opacity="0.9">CSS
+        </text>
+    </g>
+
+    <!-- 连接线动画 -->
+    <g opacity="0.3">
+        <path d="M 100 100 Q 200 50 300 100" stroke="url(#lineGradient)" stroke-width="2" fill="none" opacity="0.6">
+            <animate attributeName="stroke-dasharray" values="0,200; 100,200; 200,200" dur="3s"
+                     repeatCount="indefinite"/>
+        </path>
+
+        <path d="M 120 180 Q 200 220 280 180" stroke="url(#lineGradient)" stroke-width="2" fill="none" opacity="0.4">
+            <animate attributeName="stroke-dasharray" values="0,160; 80,160; 160,160" dur="2.5s"
+                     repeatCount="indefinite"/>
+        </path>
+    </g>
+
+    <!-- 粒子效果 -->
+    <g>
+        <circle cx="100" cy="80" r="2" fill="url(#particleGradient)" opacity="0.6">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 20,-10; 0,0" dur="4s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+        </circle>
+
+        <circle cx="300" cy="120" r="1.5" fill="url(#particleGradient)" opacity="0.5">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -15,10; 0,0" dur="3.5s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.5s" repeatCount="indefinite"/>
+        </circle>
+
+        <circle cx="150" cy="200" r="1" fill="url(#particleGradient)" opacity="0.7">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 10,-15; 0,0" dur="3s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+
+    <!-- 渐变定义 -->
+    <defs>
+        <!-- 背景渐变 -->
+        <linearGradient id="bgGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f7931e;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="bgGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f7931e;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#ffb347;stop-opacity:1"/>
+        </linearGradient>
+
+        <!-- 文档渐变 -->
+        <linearGradient id="docGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f7931e;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="docGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f7931e;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#ffb347;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="docGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#f7931e;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#ffb347;stop-opacity:1"/>
+        </linearGradient>
+
+        <!-- 标签渐变 -->
+        <linearGradient id="tagGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="tagGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#10b981;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#059669;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="tagGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#d97706;stop-opacity:1"/>
+        </linearGradient>
+
+        <!-- 线条和粒子渐变 -->
+        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0.8"/>
+            <stop offset="50%" style="stop-color:#f7931e;stop-opacity:0.6"/>
+            <stop offset="100%" style="stop-color:#ffb347;stop-opacity:0.4"/>
+        </linearGradient>
+
+        <radialGradient id="particleGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f7931e;stop-opacity:0.5"/>
+        </radialGradient>
+    </defs>
+</svg>

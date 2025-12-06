@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 GitHub Discussions
+    url: https://github.com/theo-thinker/kapok-docs/discussions
+    about: 提问、分享想法或与社区讨论
+  - name: 📖 项目文档
+    url: https://theo-thinker.github.io/kapok-docs/
+    about: 查看完整的项目文档和使用指南
+  - name: 🆘 获取帮助
+    url: https://github.com/theo-thinker/kapok-docs/discussions/categories/q-a
+    about: 在 Q&A 讨论区获取使用帮助

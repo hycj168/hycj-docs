@@ -1,0 +1,150 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 粒子星空背景 -->
+
+    <!-- 大型装饰圆圈 -->
+    <circle cx="350" cy="50" r="80" fill="url(#particleBg1)" opacity="0.08">
+        <animate attributeName="r" values="80;100;80" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50" cy="250" r="60" fill="url(#particleBg2)" opacity="0.06">
+        <animate attributeName="r" values="60;80;60" dur="6s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- 主要粒子群 -->
+    <g>
+        <!-- 大粒子 -->
+        <circle cx="100" cy="80" r="3" fill="url(#particleGrad1)" opacity="0.8">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 20,-10; 0,0" dur="6s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;1;0.8" dur="6s" repeatCount="indefinite"/>
+        </circle>
+
+        <circle cx="200" cy="120" r="2.5" fill="url(#particleGrad2)" opacity="0.7">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -15,15; 0,0" dur="5s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite"/>
+        </circle>
+
+        <circle cx="320" cy="180" r="2" fill="url(#particleGrad3)" opacity="0.9">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 10,20; 0,0" dur="7s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.9;1;0.9" dur="7s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- 中等粒子 -->
+        <circle cx="150" cy="200" r="1.5" fill="url(#particleGrad1)" opacity="0.6">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -10,-15; 0,0" dur="4s"
+                              repeatCount="indefinite"/>
+        </circle>
+
+        <circle cx="280" cy="100" r="1.8" fill="url(#particleGrad2)" opacity="0.7">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 15,-5; 0,0" dur="4.5s"
+                              repeatCount="indefinite"/>
+        </circle>
+
+        <circle cx="80" cy="160" r="1.2" fill="url(#particleGrad3)" opacity="0.8">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 25,10; 0,0" dur="5.5s"
+                              repeatCount="indefinite"/>
+        </circle>
+
+        <!-- 小粒子群 -->
+        <g opacity="0.5">
+            <circle cx="60" cy="60" r="0.8" fill="url(#particleGrad1)">
+                <animateTransform attributeName="transform" type="translate" values="0,0; 8,-8; 0,0" dur="3s"
+                                  repeatCount="indefinite"/>
+            </circle>
+            <circle cx="180" cy="50" r="0.6" fill="url(#particleGrad2)">
+                <animateTransform attributeName="transform" type="translate" values="0,0; -5,12; 0,0" dur="3.5s"
+                                  repeatCount="indefinite"/>
+            </circle>
+            <circle cx="300" cy="220" r="0.9" fill="url(#particleGrad3)">
+                <animateTransform attributeName="transform" type="translate" values="0,0; 12,-6; 0,0" dur="2.8s"
+                                  repeatCount="indefinite"/>
+            </circle>
+            <circle cx="120" cy="240" r="0.7" fill="url(#particleGrad1)">
+                <animateTransform attributeName="transform" type="translate" values="0,0; -8,8; 0,0" dur="4.2s"
+                                  repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+
+    <!-- 连接线网络 -->
+    <g opacity="0.3">
+        <path d="M100,80 Q150,100 200,120" stroke="url(#lineGrad1)" stroke-width="1" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,120; 60,120; 120,120" dur="4s"
+                     repeatCount="indefinite"/>
+        </path>
+        <path d="M200,120 Q260,150 320,180" stroke="url(#lineGrad2)" stroke-width="1" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,140; 70,140; 140,140" dur="3.5s"
+                     repeatCount="indefinite"/>
+        </path>
+        <path d="M150,200 Q200,160 280,100" stroke="url(#lineGrad3)" stroke-width="1" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,160; 80,160; 160,160" dur="4.5s"
+                     repeatCount="indefinite"/>
+        </path>
+    </g>
+
+    <!-- 流星效果 -->
+    <g>
+        <path d="M0,50 L40,90" stroke="url(#meteorGrad)" stroke-width="2" opacity="0.8">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 400,200; 0,0" dur="8s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.8;0" dur="8s" repeatCount="indefinite"/>
+        </path>
+        <path d="M0,150 L30,180" stroke="url(#meteorGrad)" stroke-width="1.5" opacity="0.6">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 400,100; 0,0" dur="6s"
+                              repeatCount="indefinite" begin="2s"/>
+            <animate attributeName="opacity" values="0;0.6;0" dur="6s" repeatCount="indefinite" begin="2s"/>
+        </path>
+    </g>
+
+    <defs>
+        <!-- 背景渐变 -->
+        <radialGradient id="particleBg1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0"/>
+        </radialGradient>
+
+        <radialGradient id="particleBg2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:0"/>
+        </radialGradient>
+
+        <!-- 粒子渐变 -->
+        <radialGradient id="particleGrad1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.5"/>
+        </radialGradient>
+
+        <radialGradient id="particleGrad2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:0.5"/>
+        </radialGradient>
+
+        <radialGradient id="particleGrad3" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.5"/>
+        </radialGradient>
+
+        <!-- 线条渐变 -->
+        <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.2"/>
+        </linearGradient>
+
+        <linearGradient id="lineGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:0.2"/>
+        </linearGradient>
+
+        <linearGradient id="lineGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.2"/>
+        </linearGradient>
+
+        <!-- 流星渐变 -->
+        <linearGradient id="meteorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#667eea;stop-opacity:0"/>
+        </linearGradient>
+    </defs>
+</svg>

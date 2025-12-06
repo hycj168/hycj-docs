@@ -1,0 +1,171 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 光晕球体背景 -->
+
+    <!-- 主要光晕球体 -->
+    <g>
+        <!-- 大型光晕球 -->
+        <circle cx="120" cy="100" r="25" fill="url(#glowOrb1)" opacity="0.6">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 15,-10; 0,0" dur="8s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.6;0.9;0.6" dur="6s" repeatCount="indefinite"/>
+        </circle>
+
+        <circle cx="280" cy="180" r="30" fill="url(#glowOrb2)" opacity="0.7">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -20,12; 0,0" dur="7s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite"/>
+        </circle>
+
+        <circle cx="350" cy="80" r="20" fill="url(#glowOrb3)" opacity="0.8">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 10,18; 0,0" dur="9s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;0.4;0.8" dur="7s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- 中型光晕球 -->
+        <circle cx="80" cy="200" r="15" fill="url(#glowOrb1)" opacity="0.5">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -12,-8; 0,0" dur="6s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4s" repeatCount="indefinite"/>
+        </circle>
+
+        <circle cx="200" cy="60" r="18" fill="url(#glowOrb2)" opacity="0.6">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 8,15; 0,0" dur="5.5s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.6;0.9;0.6" dur="6.5s" repeatCount="indefinite"/>
+        </circle>
+
+        <circle cx="320" cy="240" r="12" fill="url(#glowOrb3)" opacity="0.7">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 18,-5; 0,0" dur="7.5s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;0.3;0.7" dur="5.5s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- 小型光晕球 -->
+        <g opacity="0.4">
+            <circle cx="50" cy="120" r="8" fill="url(#glowOrb1)">
+                <animateTransform attributeName="transform" type="translate" values="0,0; 6,-12; 0,0" dur="4s"
+                                  repeatCount="indefinite"/>
+            </circle>
+            <circle cx="150" cy="220" r="6" fill="url(#glowOrb2)">
+                <animateTransform attributeName="transform" type="translate" values="0,0; -8,6; 0,0" dur="4.5s"
+                                  repeatCount="indefinite"/>
+            </circle>
+            <circle cx="250" cy="140" r="10" fill="url(#glowOrb3)">
+                <animateTransform attributeName="transform" type="translate" values="0,0; 12,8; 0,0" dur="3.8s"
+                                  repeatCount="indefinite"/>
+            </circle>
+            <circle cx="380" cy="160" r="7" fill="url(#glowOrb1)">
+                <animateTransform attributeName="transform" type="translate" values="0,0; -10,-10; 0,0" dur="5.2s"
+                                  repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </g>
+
+    <!-- 光晕扩散效果 -->
+    <g opacity="0.3">
+        <circle cx="120" cy="100" r="40" fill="url(#glowHalo1)">
+            <animate attributeName="r" values="40;60;40" dur="8s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="280" cy="180" r="50" fill="url(#glowHalo2)">
+            <animate attributeName="r" values="50;70;50" dur="7s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="350" cy="80" r="35" fill="url(#glowHalo3)">
+            <animate attributeName="r" values="35;55;35" dur="9s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+
+    <!-- 光线效果 -->
+    <g opacity="0.2">
+        <ellipse cx="120" cy="100" rx="80" ry="8" fill="url(#lightBeam1)">
+            <animateTransform attributeName="transform" type="rotate"
+                              values="0 120 100; 360 120 100" dur="20s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="280" cy="180" rx="100" ry="6" fill="url(#lightBeam2)">
+            <animateTransform attributeName="transform" type="rotate"
+                              values="0 280 180; -360 280 180" dur="25s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="350" cy="80" rx="70" ry="10" fill="url(#lightBeam3)">
+            <animateTransform attributeName="transform" type="rotate"
+                              values="0 350 80; 360 350 80" dur="18s" repeatCount="indefinite"/>
+        </ellipse>
+    </g>
+
+    <!-- 浮动光点 -->
+    <g opacity="0.6">
+        <circle cx="60" cy="50" r="2" fill="url(#glowDot)">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 20,-15; 0,0" dur="6s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="180" cy="250" r="1.5" fill="url(#glowDot)">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -15,10; 0,0" dur="7s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="300" cy="30" r="2.5" fill="url(#glowDot)">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 10,20; 0,0" dur="5.5s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;0.3;0.7" dur="6s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+
+    <defs>
+        <!-- 光晕球体渐变 -->
+        <radialGradient id="glowOrb1" cx="30%" cy="30%" r="70%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#764ba2;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#667eea;stop-opacity:0"/>
+        </radialGradient>
+
+        <radialGradient id="glowOrb2" cx="30%" cy="30%" r="70%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#f5576c;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0"/>
+        </radialGradient>
+
+        <radialGradient id="glowOrb3" cx="30%" cy="30%" r="70%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#00f2fe;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#4facfe;stop-opacity:0"/>
+        </radialGradient>
+
+        <!-- 光晕扩散渐变 -->
+        <radialGradient id="glowHalo1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.3"/>
+            <stop offset="100%" style="stop-color:#667eea;stop-opacity:0"/>
+        </radialGradient>
+
+        <radialGradient id="glowHalo2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:0.3"/>
+            <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0"/>
+        </radialGradient>
+
+        <radialGradient id="glowHalo3" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:0.3"/>
+            <stop offset="100%" style="stop-color:#4facfe;stop-opacity:0"/>
+        </radialGradient>
+
+        <!-- 光线渐变 -->
+        <radialGradient id="lightBeam1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.6"/>
+            <stop offset="100%" style="stop-color:#667eea;stop-opacity:0"/>
+        </radialGradient>
+
+        <radialGradient id="lightBeam2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:0.6"/>
+            <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0"/>
+        </radialGradient>
+
+        <radialGradient id="lightBeam3" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:0.6"/>
+            <stop offset="100%" style="stop-color:#4facfe;stop-opacity:0"/>
+        </radialGradient>
+
+        <!-- 光点渐变 -->
+        <radialGradient id="glowDot" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#667eea;stop-opacity:0.3"/>
+        </radialGradient>
+    </defs>
+</svg>

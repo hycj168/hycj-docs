@@ -1,0 +1,64 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景圆形 -->
+    <circle cx="8" cy="8" r="7.5" fill="url(#gradient)" stroke="url(#borderGradient)" stroke-width="1"/>
+
+    <!-- 文档图标主体 -->
+    <g transform="translate(4, 3)">
+        <!-- 文档背景 -->
+        <rect x="1" y="1" width="6" height="8" rx="1" fill="white" fill-opacity="0.95"/>
+
+        <!-- 文档折角 -->
+        <path d="M6 1 L7 1 L7 2 L6 1" fill="url(#cornerGradient)"/>
+
+        <!-- 文档内容线条 -->
+        <rect x="2" y="3" width="3" height="0.5" rx="0.25" fill="url(#textGradient)" fill-opacity="0.8"/>
+        <rect x="2" y="4" width="4" height="0.5" rx="0.25" fill="url(#textGradient)" fill-opacity="0.6"/>
+        <rect x="2" y="5" width="2.5" height="0.5" rx="0.25" fill="url(#textGradient)" fill-opacity="0.4"/>
+
+        <!-- 代码符号 -->
+        <g transform="translate(2, 6)">
+            <!-- 左括号 -->
+            <path d="M0.5 0.5 L0 1 L0.5 1.5" stroke="url(#codeGradient)" stroke-width="0.5" fill="none"
+                  stroke-linecap="round"/>
+            <!-- 右括号 -->
+            <path d="M2.5 0.5 L3 1 L2.5 1.5" stroke="url(#codeGradient)" stroke-width="0.5" fill="none"
+                  stroke-linecap="round"/>
+            <!-- 中间点 -->
+            <circle cx="1.5" cy="1" r="0.25" fill="url(#codeGradient)"/>
+        </g>
+    </g>
+
+    <!-- 渐变定义 -->
+    <defs>
+        <!-- 主背景渐变 -->
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#f7931e;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#ffb347;stop-opacity:1"/>
+        </linearGradient>
+
+        <!-- 边框渐变 -->
+        <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#f7931e;stop-opacity:0.8"/>
+        </linearGradient>
+
+        <!-- 折角渐变 -->
+        <linearGradient id="cornerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0.3"/>
+            <stop offset="100%" style="stop-color:#f7931e;stop-opacity:0.1"/>
+        </linearGradient>
+
+        <!-- 文本渐变 -->
+        <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f7931e;stop-opacity:1"/>
+        </linearGradient>
+
+        <!-- 代码渐变 -->
+        <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f7931e;stop-opacity:1"/>
+        </linearGradient>
+    </defs>
+</svg>

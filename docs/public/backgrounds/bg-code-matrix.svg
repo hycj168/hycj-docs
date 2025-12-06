@@ -1,0 +1,196 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 代码矩阵背景 -->
+
+    <!-- 背景网格 -->
+    <defs>
+        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="url(#gridGrad)" stroke-width="0.5" opacity="0.3"/>
+        </pattern>
+    </defs>
+
+    <rect width="400" height="300" fill="url(#grid)"/>
+
+    <!-- 代码窗口 -->
+    <g>
+        <!-- 主代码窗口 -->
+        <rect x="50" y="40" width="180" height="120" rx="8" fill="url(#codeWindowGrad)" opacity="0.9">
+            <animate attributeName="opacity" values="0.9;1;0.9" dur="4s" repeatCount="indefinite"/>
+        </rect>
+
+        <!-- 窗口标题栏 -->
+        <rect x="50" y="40" width="180" height="25" rx="8" fill="url(#titleBarGrad)"/>
+        <circle cx="65" cy="52" r="3" fill="#ff5f56"/>
+        <circle cx="78" cy="52" r="3" fill="#ffbd2e"/>
+        <circle cx="91" cy="52" r="3" fill="#27ca3f"/>
+
+        <!-- 代码行 -->
+        <g opacity="0.8">
+            <rect x="60" y="75" width="80" height="3" rx="1.5" fill="url(#codeLineGrad1)">
+                <animate attributeName="width" values="80;90;80" dur="3s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="60" y="85" width="120" height="3" rx="1.5" fill="url(#codeLineGrad2)">
+                <animate attributeName="width" values="120;130;120" dur="2.5s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="70" y="95" width="90" height="3" rx="1.5" fill="url(#codeLineGrad3)">
+                <animate attributeName="width" values="90;100;90" dur="3.5s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="70" y="105" width="110" height="3" rx="1.5" fill="url(#codeLineGrad1)">
+                <animate attributeName="width" values="110;120;110" dur="2.8s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="60" y="115" width="70" height="3" rx="1.5" fill="url(#codeLineGrad2)">
+                <animate attributeName="width" values="70;80;70" dur="3.2s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="60" y="125" width="100" height="3" rx="1.5" fill="url(#codeLineGrad3)">
+                <animate attributeName="width" values="100;110;100" dur="2.7s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="70" y="135" width="85" height="3" rx="1.5" fill="url(#codeLineGrad1)">
+                <animate attributeName="width" values="85;95;85" dur="3.8s" repeatCount="indefinite"/>
+            </rect>
+        </g>
+
+        <!-- 光标 -->
+        <rect x="150" y="145" width="2" height="12" fill="url(#cursorGrad)">
+            <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+        </rect>
+    </g>
+
+    <!-- 第二个代码窗口 -->
+    <g transform="translate(200, 60)">
+        <rect x="0" y="0" width="140" height="100" rx="6" fill="url(#codeWindow2Grad)" opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.9;0.8" dur="3.5s" repeatCount="indefinite"/>
+        </rect>
+
+        <!-- 代码块 -->
+        <rect x="10" y="15" width="60" height="15" rx="3" fill="url(#codeBlockGrad)" opacity="0.6"/>
+        <rect x="10" y="35" width="80" height="15" rx="3" fill="url(#codeBlockGrad)" opacity="0.5"/>
+        <rect x="10" y="55" width="50" height="15" rx="3" fill="url(#codeBlockGrad)" opacity="0.7"/>
+        <rect x="10" y="75" width="90" height="15" rx="3" fill="url(#codeBlockGrad)" opacity="0.4"/>
+    </g>
+
+    <!-- 浮动代码片段 -->
+    <g>
+        <!-- 标签1 -->
+        <rect x="30" y="200" width="40" height="20" rx="10" fill="url(#tagGrad1)" opacity="0.8">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-8; 0,0" dur="4s"
+                              repeatCount="indefinite"/>
+        </rect>
+        <text x="50" y="213" font-family="monospace" font-size="8" fill="white" text-anchor="middle" opacity="0.9">&lt;/&gt;</text>
+
+        <!-- 标签2 -->
+        <rect x="320" y="220" width="35" height="18" rx="9" fill="url(#tagGrad2)" opacity="0.7">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,6; 0,0" dur="3s"
+                              repeatCount="indefinite"/>
+        </rect>
+        <text x="337" y="232" font-family="monospace" font-size="7" fill="white" text-anchor="middle" opacity="0.9">{}
+        </text>
+
+        <!-- 标签3 -->
+        <rect x="150" y="250" width="30" height="16" rx="8" fill="url(#tagGrad3)" opacity="0.9">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-5; 0,0" dur="5s"
+                              repeatCount="indefinite"/>
+        </rect>
+        <text x="165" y="260" font-family="monospace" font-size="6" fill="white" text-anchor="middle" opacity="0.9">fn
+        </text>
+    </g>
+
+    <!-- 数据流线条 -->
+    <g opacity="0.4">
+        <path d="M80,180 Q150,160 220,180 Q290,200 360,180" stroke="url(#dataFlowGrad)" stroke-width="2" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,280; 140,280; 280,280" dur="6s"
+                     repeatCount="indefinite"/>
+        </path>
+
+        <path d="M60,240 Q130,220 200,240 Q270,260 340,240" stroke="url(#dataFlowGrad)" stroke-width="1.5" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,240; 120,240; 240,240" dur="5s"
+                     repeatCount="indefinite"/>
+        </path>
+    </g>
+
+    <!-- 二进制雨效果 -->
+    <g opacity="0.3">
+        <text x="100" y="20" font-family="monospace" font-size="10" fill="url(#binaryGrad)">1010</text>
+        <text x="200" y="30" font-family="monospace" font-size="8" fill="url(#binaryGrad)">0110</text>
+        <text x="300" y="25" font-family="monospace" font-size="9" fill="url(#binaryGrad)">1101</text>
+        <text x="150" y="15" font-family="monospace" font-size="7" fill="url(#binaryGrad)">0011</text>
+
+        <animateTransform attributeName="transform" type="translate" values="0,-50; 0,350" dur="8s"
+                          repeatCount="indefinite"/>
+    </g>
+
+    <defs>
+        <!-- 网格渐变 -->
+        <linearGradient id="gridGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.5"/>
+        </linearGradient>
+
+        <!-- 代码窗口渐变 -->
+        <linearGradient id="codeWindowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:0.95"/>
+            <stop offset="100%" style="stop-color:#16213e;stop-opacity:0.9"/>
+        </linearGradient>
+
+        <linearGradient id="codeWindow2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0f3460;stop-opacity:0.9"/>
+            <stop offset="100%" style="stop-color:#0e4b99;stop-opacity:0.8"/>
+        </linearGradient>
+
+        <linearGradient id="titleBarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#2d3748;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#4a5568;stop-opacity:1"/>
+        </linearGradient>
+
+        <!-- 代码行渐变 -->
+        <linearGradient id="codeLineGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.4"/>
+        </linearGradient>
+
+        <linearGradient id="codeLineGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:0.7"/>
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:0.3"/>
+        </linearGradient>
+
+        <linearGradient id="codeLineGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.4"/>
+        </linearGradient>
+
+        <!-- 其他渐变 -->
+        <linearGradient id="cursorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#667eea;stop-opacity:0.8"/>
+        </linearGradient>
+
+        <linearGradient id="codeBlockGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.6"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.3"/>
+        </linearGradient>
+
+        <linearGradient id="tagGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f7931e;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="tagGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="tagGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1"/>
+        </linearGradient>
+
+        <linearGradient id="dataFlowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.8"/>
+            <stop offset="50%" style="stop-color:#764ba2;stop-opacity:0.6"/>
+            <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0.2"/>
+        </linearGradient>
+
+        <linearGradient id="binaryGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#00f2fe;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#4facfe;stop-opacity:0.3"/>
+        </linearGradient>
+    </defs>
+</svg>

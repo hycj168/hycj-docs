@@ -1,0 +1,167 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 代码流动背景 -->
+
+    <!-- 代码字符流 -->
+    <g>
+        <!-- 第一列代码流 -->
+        <g opacity="0.8">
+            <text x="50" y="20" font-family="monospace" font-size="12" fill="url(#codeGrad1)">
+                01 10 11 00 01 10 11 00 01 10 11 00 01 10 11 00 01 10 11 00
+            </text>
+            <animateTransform attributeName="transform" type="translate"
+                              values="0,-50; 0,350" dur="8s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.8;0" dur="8s" repeatCount="indefinite"/>
+        </g>
+
+        <!-- 第二列代码流 -->
+        <g opacity="0.7">
+            <text x="120" y="20" font-family="monospace" font-size="10" fill="url(#codeGrad2)">
+                if for var let const func return class import export async await
+            </text>
+            <animateTransform attributeName="transform" type="translate"
+                              values="0,-60; 0,360" dur="10s" repeatCount="indefinite" begin="1s"/>
+            <animate attributeName="opacity" values="0;0.7;0" dur="10s" repeatCount="indefinite" begin="1s"/>
+        </g>
+
+        <!-- 第三列代码流 -->
+        <g opacity="0.6">
+            <text x="200" y="20" font-family="monospace" font-size="8" fill="url(#codeGrad3)">
+                {} () [] =&gt; === !== &amp;&amp; || ++ -- += -= *= /= %= ?? ?. ... typeof
+            </text>
+            <animateTransform attributeName="transform" type="translate"
+                              values="0,-40; 0,340" dur="7s" repeatCount="indefinite" begin="2s"/>
+            <animate attributeName="opacity" values="0;0.6;0" dur="7s" repeatCount="indefinite" begin="2s"/>
+        </g>
+
+        <!-- 第四列代码流 -->
+        <g opacity="0.9">
+            <text x="280" y="20" font-family="monospace" font-size="11" fill="url(#codeGrad1)">
+                console log error warn info debug trace assert clear count
+            </text>
+            <animateTransform attributeName="transform" type="translate"
+                              values="0,-70; 0,370" dur="9s" repeatCount="indefinite" begin="0.5s"/>
+            <animate attributeName="opacity" values="0;0.9;0" dur="9s" repeatCount="indefinite" begin="0.5s"/>
+        </g>
+
+        <!-- 第五列代码流 -->
+        <g opacity="0.5">
+            <text x="350" y="20" font-family="monospace" font-size="9" fill="url(#codeGrad2)">
+                A1 B2 C3 D4 E5 F6 07 18 29 3A 4B 5C 6D 7E 8F 90
+            </text>
+            <animateTransform attributeName="transform" type="translate"
+                              values="0,-30; 0,330" dur="6s" repeatCount="indefinite" begin="1.5s"/>
+            <animate attributeName="opacity" values="0;0.5;0" dur="6s" repeatCount="indefinite" begin="1.5s"/>
+        </g>
+    </g>
+
+    <!-- 代码块装饰 -->
+    <g opacity="0.3">
+        <rect x="30" y="50" width="60" height="40" rx="4" fill="url(#codeBlockGrad1)" stroke="url(#codeGrad1)"
+              stroke-width="1">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 10,-15; 0,0" dur="8s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.3;0.6;0.3" dur="6s" repeatCount="indefinite"/>
+        </rect>
+
+        <rect x="150" y="180" width="80" height="50" rx="4" fill="url(#codeBlockGrad2)" stroke="url(#codeGrad2)"
+              stroke-width="1">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -15,8; 0,0" dur="9s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="7s" repeatCount="indefinite"/>
+        </rect>
+
+        <rect x="300" y="120" width="70" height="35" rx="4" fill="url(#codeBlockGrad3)" stroke="url(#codeGrad3)"
+              stroke-width="1">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 12,20; 0,0" dur="7s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="8s" repeatCount="indefinite"/>
+        </rect>
+    </g>
+
+    <!-- 数据流粒子 -->
+    <g>
+        <circle cx="80" cy="100" r="2" fill="url(#dataParticle1)" opacity="0.8">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 200,-50; 0,0" dur="5s"
+                              repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;1;0.8" dur="5s" repeatCount="indefinite"/>
+        </circle>
+
+        <circle cx="150" cy="200" r="1.5" fill="url(#dataParticle2)" opacity="0.7">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -100,80; 0,0" dur="6s"
+                              repeatCount="indefinite" begin="1s"/>
+            <animate attributeName="opacity" values="0.7;0.3;0.7" dur="6s" repeatCount="indefinite" begin="1s"/>
+        </circle>
+
+        <circle cx="320" cy="80" r="2.5" fill="url(#dataParticle3)" opacity="0.9">
+            <animateTransform attributeName="transform" type="translate" values="0,0; -150,120; 0,0" dur="7s"
+                              repeatCount="indefinite" begin="2s"/>
+            <animate attributeName="opacity" values="0.9;0.4;0.9" dur="7s" repeatCount="indefinite" begin="2s"/>
+        </circle>
+    </g>
+
+    <!-- 连接线网络 -->
+    <g opacity="0.4">
+        <path d="M60,70 Q120,50 180,70 T300,70" stroke="url(#codeGrad1)" stroke-width="1" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,240; 120,240; 240,240" dur="4s"
+                     repeatCount="indefinite"/>
+        </path>
+        <path d="M90,150 Q150,130 210,150 T330,150" stroke="url(#codeGrad2)" stroke-width="1" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,260; 130,260; 260,260" dur="5s"
+                     repeatCount="indefinite" begin="1s"/>
+        </path>
+        <path d="M50,220 Q130,200 210,220 T370,220" stroke="url(#codeGrad3)" stroke-width="1" fill="none">
+            <animate attributeName="stroke-dasharray" values="0,320; 160,320; 320,320" dur="6s"
+                     repeatCount="indefinite" begin="2s"/>
+        </path>
+    </g>
+
+    <defs>
+        <!-- 代码文字渐变 -->
+        <linearGradient id="codeGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.3"/>
+        </linearGradient>
+
+        <linearGradient id="codeGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:0.3"/>
+        </linearGradient>
+
+        <linearGradient id="codeGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.3"/>
+        </linearGradient>
+
+        <!-- 代码块渐变 -->
+        <linearGradient id="codeBlockGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.2"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.05"/>
+        </linearGradient>
+
+        <linearGradient id="codeBlockGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:0.2"/>
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:0.05"/>
+        </linearGradient>
+
+        <linearGradient id="codeBlockGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:0.2"/>
+            <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.05"/>
+        </linearGradient>
+
+        <!-- 数据粒子渐变 -->
+        <radialGradient id="dataParticle1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.5"/>
+        </radialGradient>
+
+        <radialGradient id="dataParticle2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:0.5"/>
+        </radialGradient>
+
+        <radialGradient id="dataParticle3" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:0.5"/>
+        </radialGradient>
+    </defs>
+</svg>
