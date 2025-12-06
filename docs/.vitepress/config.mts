@@ -46,20 +46,19 @@ export default defineConfig({
         // 网站logo
         logo: "/logo.svg",
 
+        lastUpdated: {
+            text: '最后更新时间',
+        },
+
         docFooter: {
             prev: '上一页',
             next: '下一页'
         },
 
         outline: {
+            level: "deep",
             label: '页面导航',
             position: 'right'
-        },
-
-        aside: {
-            level: [2, 3],
-            collapsed: false,
-            collapsible: true
         },
 
         // 导航栏
@@ -144,7 +143,10 @@ export default defineConfig({
 
         // 页脚
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/vuejs/vitepress'}
+            {
+                icon: 'github',
+                link: 'https://github.com/vuejs/vitepress'
+            }
         ],
 
         footer: {
