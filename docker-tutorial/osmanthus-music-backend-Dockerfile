@@ -1,0 +1,132 @@
+# ==================== Osmanthus Music Backend Dockerfile ====================
+# 多阶段构建，优化镜像大小
+# 基础镜像: OpenJDK 21 Alpine
+# 构建工具: Gradle
+# 最终镜像: JRE 21 Alpine
+# ========================================================================
+
+# ==================== 构建阶段 ====================
+FROM gradle:8.11.1-jdk21-alpine AS builder
+
+# 维护者信息
+LABEL maintainer="Osmanthus Team <osmanthus@example.com>"
+LABEL version="1.0.0"
+LABEL description="Osmanthus Music Backend - 企业级音乐管理系统"
+
+# 设置工作目录
+WORKDIR /app
+
+# 复制 Gradle 构建文件
+COPY build.gradle.kts settings.gradle.kts gradle.properties ./
+COPY gradle ./gradle
+
+# 复制源代码
+COPY src ./src
+
+# 设置 Gradle 构建参数
+ENV GRADLE_OPTS="-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs='-Xmx1g -XX:MaxMetaspaceSize=512m'"
+
+# 执行构建（跳过测试，可在CI/CD中配置）
+RUN gradle build -x test --no-daemon --info
+
+# ==================== 运行阶段 ====================
+FROM eclipse-temurin:21-jre
+
+# 安装必要的工具
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    netcat-openbsd \
+    && rm -rf /var/lib/apt/lists/*
+
+# 创建应用用户（非root用户，提高安全性）
+RUN groupadd -r osmanthus && useradd -r -g osmanthus -s /bin/bash osmanthus
+
+# 设置工作目录
+WORKDIR /app
+
+# 参数定义
+ARG JAR_FILE=build/libs/osmanthus-music-backend-0.0.1-SNAPSHOT.jar
+ARG JAVA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -XX:+UseStringDeduplication"
+
+# 环境变量
+ENV JAVA_OPTS=${JAVA_OPTS}
+ENV SPRING_PROFILES_ACTIVE=prod
+ENV SERVER_PORT=8080
+ENV LOG_PATH=/app/logs
+
+# 创建必要的目录
+RUN mkdir -p /app/logs /app/uploads /app/temp /app/config && \
+    chown -R osmanthus:osmanthus /app
+
+# 复制构建好的 JAR 文件
+COPY --from=builder /app/build/libs/*.jar app.jar
+
+# 复制配置文件（如果有外部配置需求）
+# COPY src/main/resources/application-prod.yml /app/config/
+
+# 设置文件权限
+RUN chown osmanthus:osmanthus app.jar && chmod 755 app.jar
+
+# 切换到非root用户
+USER osmanthus
+
+# 健康检查
+HEALTHCHECK --interval=30s --timeout=10s --start-period=120s --retries=3 \
+  CMD curl -f http://localhost:8080/actuator/health || exit 1
+
+# 暴露端口
+EXPOSE 8080
+
+# 入口脚本
+COPY <<'EOF' /app/entrypoint.sh
+#!/bin/bash
+set -e
+
+echo "🌸 Osmanthus Music Backend 启动中..."
+
+# 等待数据库连接
+echo "等待数据库服务就绪..."
+while ! nc -z ${DB_HOST:-mysql} ${DB_PORT:-3306}; do
+  sleep 1
+done
+echo "数据库连接成功 ✓"
+
+# 等待Redis连接
+echo "等待Redis服务就绪..."
+while ! nc -z ${REDIS_HOST:-redis} ${REDIS_PORT:-6379}; do
+  sleep 1
+done
+echo "Redis连接成功 ✓"
+
+# 创建必要的目录
+mkdir -p ${LOG_PATH} /app/uploads /app/temp
+
+# 启动应用
+echo "启动 Spring Boot 应用..."
+exec java ${JAVA_OPTS} \
+  -Djava.security.egd=file:/dev/./urandom \
+  -Dspring.profiles.active=${SPRING_PROFILES_ACTIVE} \
+  -Dserver.port=${SERVER_PORT} \
+  -Dlogging.file.path=${LOG_PATH} \
+  -jar app.jar
+EOF
+
+# 设置入口脚本权限
+USER root
+RUN chmod +x /app/entrypoint.sh
+USER osmanthus
+
+# 设置数据卷
+VOLUME ["/app/logs", "/app/uploads", "/app/temp"]
+
+# 入口点
+ENTRYPOINT ["/app/entrypoint.sh"]
+
+# ==================== 标签信息 ====================
+LABEL org.opencontainers.image.title="Osmanthus Music Backend"
+LABEL org.opencontainers.image.description="企业级音乐管理系统后端服务"
+LABEL org.opencontainers.image.version="1.0.0"
+LABEL org.opencontainers.image.authors="Osmanthus Team"
+LABEL org.opencontainers.image.source="https://github.com/your-org/osmanthus-music-backend"
+LABEL org.opencontainers.image.licenses="MIT"

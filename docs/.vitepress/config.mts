@@ -66,6 +66,7 @@ export default defineConfig({
             {text: '首页', link: '/'},
             {text: 'Windows', link: '/windows-configuration/index'},
             {text: 'Ubuntu', link: '/ubuntu-configuration/index'},
+            {text: 'Docker', link: '/docker-tutorial/index'},
             {text: '主题切换', link: '/theme-switcher'},
         ],
 
@@ -82,6 +83,14 @@ export default defineConfig({
                 text: 'Ubuntu开发环境配置',
                 items: [
                     {text: 'Ubuntu 配置', link: '/ubuntu-configuration/index'}
+                ]
+            },
+            {
+                text: 'Docker教程',
+                items: [
+                    {text: 'Ubuntu 使用 Docker 教程', link: '/docker-tutorial/docker-ubuntu-install'},
+                    {text: 'Docker 常用命令', link: '/docker-tutorial/docker-command-base'},
+
                 ]
             },
             {

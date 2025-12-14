@@ -1,0 +1,151 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0.40
+    container_name: mysql-production
+    restart: unless-stopped
+    
+    environment:
+      # 根密码（必须设置）
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-StrongRootPass123!}
+      
+      # 数据库配置
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-myapp}
+      MYSQL_USER: ${MYSQL_USER:-appuser}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-AppPass123!}
+      
+      # 时区配置
+      TZ: Asia/Shanghai
+      
+      # 内存配置（根据服务器调整）
+      MYSQL_MEMORY_LIMIT: 4G
+      
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    
+    volumes:
+      # 数据持久化
+      - ./data:/var/lib/mysql
+      
+      # 配置文件
+      - ./config/mysql.cnf:/etc/mysql/conf.d/mysql.cnf:ro
+      
+      # 日志文件
+      - ./logs:/var/log/mysql
+      
+      # 初始化脚本
+      - ./scripts/init:/docker-entrypoint-initdb.d:ro
+      
+      # 时区配置
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    
+    command: 
+      - --default-authentication-plugin=mysql_native_password
+      - --sql-mode=STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION
+      - --max-connections=1000
+      - --innodb-buffer-pool-size=2G
+    
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '1'
+          memory: 2G
+    
+    networks:
+      - mysql-network
+
+  # MySQL 备份服务
+  mysql-backup:
+    image: mysql:8.0.40
+    container_name: mysql-backup
+    restart: unless-stopped
+    
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-StrongRootPass123!}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-myapp}
+      BACKUP_SCHEDULE: "0 2 * * *"  # 每天凌晨2点备份
+      BACKUP_RETENTION: 7
+      
+    volumes:
+      - ./backup:/backup
+      - ./scripts/backup.sh:/backup.sh:ro
+      - ./data:/var/lib/mysql:ro
+    
+    depends_on:
+      - mysql
+    
+    command: |
+      bash -c '
+        echo "0 2 * * * /backup.sh" | crontab - &&
+        cron -f
+      '
+    
+    networks:
+      - mysql-network
+
+  # MySQL 监控服务（可选）
+  mysql-exporter:
+    image: prom/mysqld-exporter:latest
+    container_name: mysql-exporter
+    restart: unless-stopped
+    
+    environment:
+      DATA_SOURCE_NAME: "root:${MYSQL_ROOT_PASSWORD}@(mysql:3306)/"
+      
+    ports:
+      - "9104:9104"
+    
+    depends_on:
+      - mysql
+    
+    networks:
+      - mysql-network
+
+  # phpMyAdmin（可选，仅开发环境）
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: unless-stopped
+    
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      UPLOAD_LIMIT: 100M
+      
+    ports:
+      - "8080:80"
+    
+    depends_on:
+      - mysql
+    
+    networks:
+      - mysql-network
+
+networks:
+  mysql-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  mysql-data:
+    driver: local
+  mysql-logs:
+    driver: local
+  mysql-backup:
+    driver: local

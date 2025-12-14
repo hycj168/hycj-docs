@@ -1,0 +1,118 @@
+# MySQL 主从复制 Docker Compose 配置
+
+version: '3.8'
+
+services:
+  mysql-master:
+    image: mysql:8.0.40
+    container_name: mysql-master
+    restart: unless-stopped
+    
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-MasterRootPass123!}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-replication_db}
+      MYSQL_USER: ${MYSQL_USER:-repl_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-ReplUserPass123!}
+      TZ: Asia/Shanghai
+      
+    ports:
+      - "3306:3306"
+    
+    volumes:
+      - ./master-data:/var/lib/mysql
+      - ./config/master.cnf:/etc/mysql/conf.d/master.cnf:ro
+      - ./logs/master:/var/log/mysql
+      - ./scripts/master-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    
+    networks:
+      mysql-replication:
+        ipv4_address: 172.20.0.2
+
+  mysql-slave:
+    image: mysql:8.0.40
+    container_name: mysql-slave
+    restart: unless-stopped
+    
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-SlaveRootPass123!}
+      TZ: Asia/Shanghai
+      
+    ports:
+      - "3307:3306"
+    
+    volumes:
+      - ./slave-data:/var/lib/mysql
+      - ./config/slave.cnf:/etc/mysql/conf.d/slave.cnf:ro
+      - ./logs/slave:/var/log/mysql
+      - ./scripts/slave-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    
+    depends_on:
+      - mysql-master
+    
+    networks:
+      mysql-replication:
+        ipv4_address: 172.20.0.3
+
+  # MySQL 路由器（用于读写分离）
+  mysql-router:
+    image: mysql/mysql-router:latest
+    container_name: mysql-router
+    restart: unless-stopped
+    
+    environment:
+      MYSQL_HOST: mysql-master
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      
+    ports:
+      - "6446:6446"  # 读写端口
+      - "6447:6447"  # 只读端口
+    
+    depends_on:
+      - mysql-master
+      - mysql-slave
+    
+    networks:
+      mysql-replication:
+        ipv4_address: 172.20.0.4
+
+  # 备份服务
+  mysql-backup:
+    image: mysql:8.0.40
+    container_name: mysql-backup
+    restart: unless-stopped
+    
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      BACKUP_SCHEDULE: "0 2 * * *"
+      BACKUP_RETENTION: 7
+      
+    volumes:
+      - ./backup:/backup
+      - ./scripts/backup-replication.sh:/backup.sh:ro
+    
+    depends_on:
+      - mysql-master
+    
+    command: |
+      bash -c '
+        echo "0 2 * * * /backup.sh" | crontab - &&
+        cron -f
+      '
+    
+    networks:
+      - mysql-replication
+
+networks:
+  mysql-replication:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  master-data:
+    driver: local
+  slave-data:
+    driver: local
