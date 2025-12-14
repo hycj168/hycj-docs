@@ -241,9 +241,9 @@ mkdir -p $HOME/.ssh
 
 ## 📚 相关文档
 
-- [Docker企业级安装教程](./Ubuntu-24.04-Docker-企业级安装教程.md)
-- [Docker数据卷配置指南](./docker-volumes-setup-README.md)
-- [企业级Docker部署指南](./enterprise-docker-setup-guide.md)
+- [Docker企业级安装教程](../docker-tutorial/ubuntu-24.04-docker-install.md)
+- [Docker数据卷配置指南](../docker-tutorial/docker-volumes-setup.md)
+- [企业级Docker部署指南](../docker-tutorial/index.md)
 
 ---
 

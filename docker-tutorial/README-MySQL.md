@@ -16,7 +16,7 @@
 
 ## 📁 文件结构
 
-```
+```bash
 docker-tutorial/
 ├── Docker-MySQL-企业级安装教程.md    # 详细安装教程
 ├── mysql-docker-compose.yml          # 基础 Docker Compose 配置
@@ -142,12 +142,12 @@ TZ=Asia/Shanghai                             # 时区
 
 ### 内存配置建议
 
-| 服务器内存 | innodb_buffer_pool_size | 查询缓存 |
-|------------|------------------------|----------|
-| 4GB        | 2GB                    | 128MB    |
-| 8GB        | 5GB                    | 256MB    |
-| 16GB       | 12GB                   | 512MB    |
-| 32GB       | 24GB                   | 1GB      |
+| 服务器内存 | innodb_buffer_pool_size | 查询缓存  |
+|-------|-------------------------|-------|
+| 4GB   | 2GB                     | 128MB |
+| 8GB   | 5GB                     | 256MB |
+| 16GB  | 12GB                    | 512MB |
+| 32GB  | 24GB                    | 1GB   |
 
 ### 连接数配置
 

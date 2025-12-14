@@ -82,15 +82,34 @@ export default defineConfig({
             {
                 text: 'Ubuntu开发环境配置',
                 items: [
-                    {text: 'Ubuntu 配置', link: '/ubuntu-configuration/index'}
+                    {text: 'Ubuntu 配置', link: '/ubuntu-configuration/index'},
+                    {
+                        text: 'Ubuntu 企业级文件系统详解',
+                        link: '/ubuntu-configuration/ubuntu-enterprise-file-system-base'
+                    },
+                    {text: 'SSH 密钥认证配置', link: '/ubuntu-configuration/ssh-config'}
                 ]
             },
             {
                 text: 'Docker教程',
                 items: [
                     {text: 'Ubuntu 使用 Docker 教程', link: '/docker-tutorial/docker-ubuntu-install'},
+                    {text: 'Ubuntu 24.04 Docker 企业级安装教程', link: '/docker-tutorial/ubuntu-24.04-docker-install'},
                     {text: 'Docker 常用命令', link: '/docker-tutorial/docker-command-base'},
+                    {text: 'Docker Compose 环境变量优先级', link: '/docker-tutorial/docker-compose-env-base'},
+                    {text: 'Docker Compose 模板', link: '/docker-tutorial/docker-compose-template'},
+                    {text: 'Docker 企业级数据库卷挂载目录创建脚本', link: '/docker-tutorial/docker-volumes-setup'},
+                    {text: 'Docker 镜像构建基础', link: '/docker-tutorial/docker-build-base'}
 
+                ]
+            },
+            {
+                text: 'Docker 常用镜像',
+                items: [
+                    {text: 'Docker 常用镜像列表', link: '/docker-tutorial/common/docker-images-list'},
+                    {text: 'RustFS 常用镜像', link: '/docker-tutorial/common/rustfs-docker-usage'},
+                    {text: 'MySQL 企业级安装', link: '/docker-tutorial/common/docker-mysql-enterprise-install'},
+                    {text: 'MySQL 企业级命令', link: '/docker-tutorial/common/docker-mysql-all-command'}
                 ]
             },
             {
